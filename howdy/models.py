@@ -25,7 +25,6 @@ class Project(models.Model):
     """
     title = models.CharField(max_length=200) #title of the project on CV
     # Foreign Key used because book can only have one author, but authors can have multiple books
-    # Author as a string rather than object because it hasn't been declared yet in the file.
     summary = models.TextField(max_length=1000, help_text="Enter a brief description of the project")
     version = models.CharField('Version',max_length= 8, help_text="(max) 12 Character version number e.g. 1.0.1 or in progress")    
     language = models.ManyToManyField(Language, help_text="Select the language for this project")
@@ -53,7 +52,7 @@ class ProjectInstance(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="Unique ID for this particular project")
     project = models.ForeignKey('Project', on_delete=models.SET_NULL, null=True) 
     imprint = models.CharField(max_length=200)
-    late_update = models.DateField(null=True, blank=True)
+    last_update = models.DateField(null=True, blank=True)
 
     PROJECT_STATUS = (
         ('e', 'Early Phases'),

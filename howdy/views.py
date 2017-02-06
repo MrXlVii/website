@@ -2,6 +2,8 @@
 
 from django.shortcuts import render
 from django.views import generic
+from .models import Project
+
 
 # Create your views here.
 class HomePageView(generic.TemplateView):
@@ -14,4 +16,6 @@ class EssaysPageView(generic.TemplateView):
     template_name = "essays.html"
 
 class ProjectsListView(generic.ListView):
-    model = "projects.html"
+    model = Project
+    template_name = "projects.html"
+        
