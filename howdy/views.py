@@ -9,14 +9,18 @@ from .models import Project
 class HomePageView(generic.TemplateView):
     template_name = "index.html"
 
+
 class AboutPageView(generic.TemplateView):
     template_name = "about.html"
+
 
 class EssaysPageView(generic.TemplateView):
     template_name = "essays.html"
 
+
 class ProjectsListView(generic.ListView):
     model = Project
+
 
 class ProjectDetailView(generic.DetailView):
     model = Project
