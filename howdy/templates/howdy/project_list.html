@@ -1,19 +1,24 @@
-{% extends "base.html" %}
+<!-- howdy/templates/howdy/project_list.html -->
+{% extends 'base.html' %}
 
-{% block content %}
-    <h1>Project List</h1>
-
-    {% if project_list %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Projects{% endblock %}</title>
+    </head>
+    <body>
+      {% block content %}
+        <h1>Project List</h1>
+        {% if object_list %}
     <ul>
-
-      {% for project in project_list %}
-      <li>
-        <a href="{{ project.get_absolute_url }}">{{ project.title }}</a>
-      </li>
-      {% endfor %}
-
+          {% for project in object_list %}
+            <li>{{ project.title }}</li>
+          {% endfor %}
     </ul>
-    {% else %}
-      <p>There are no projects to display.</p>
-    {% endif %}       
-{% endblock %}
+        {% else %}
+            <p>There are no projects to display.</p>
+        {% endif %}       
+      {% endblock %}
+    </body>
+</html>

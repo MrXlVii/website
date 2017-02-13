@@ -1,4 +1,5 @@
 <!-- djangotemplates/example/templates/base.html -->
+<!-- Templatby quackit.com -->
 
 {% load static %}
 <!DOCTYPE html>
@@ -13,10 +14,93 @@
       Tasheme Thomas || {% block title %}{% endblock %}
     </title>
 
-    <script src="{% static 'js/main.js' %}"></script> <!-- This is how to include a static file -->
+    <script src="{% static 'js/main.js' %}"></script> 
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+
+    <style type="text/css">
+		    body {
+				margin:0;
+				padding:0;
+				font-family: Sans-Serif;
+				line-height: 1.5em;
+			}
+			
+			#header {
+				background: #ccc;
+				height: 100px;
+			}
+			
+			#header h1 {
+				margin: 0;
+				padding-top: 15px;
+			}
+			
+			main {
+				padding-bottom: 10010px;
+				margin-bottom: -10000px;
+				float: left;
+				width: 100%;
+			}
+			
+			#nav {
+				padding-bottom: 10010px;
+				margin-bottom: -10000px;
+				float: left;
+				width: 230px;
+				margin-left: -100%;
+				background: #eee;
+			}
+			
+			#footer {
+				clear: left;
+				width: 100%;
+				background: #ccc;
+				text-align: center;
+				padding: 4px 0;
+			}
+	
+			#wrapper {
+				overflow: hidden;
+			}
+						
+			#content {
+				margin-left: 230px; /* Same as 'nav' width */
+			}
+			
+			.innertube {
+				margin: 15px; /* Padding for content */
+				margin-top: 0;
+			}
+		
+			p {
+				color: #555;
+			}
+	
+			nav ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			nav ul a {
+				color: darkgreen;
+				text-decoration: none;
+			}
+		
+		</style>	
   </head>
   <body>
+		<div id="wrapper">
+			<main>
+				<div id="content">
+                   <div class="col-sm-10">    
+                       {% block pagecontent %}{% endblock %}
+                   </div>
+				</div>
+			</main>
+
+    <nav id="nav">
+    <div class="innertube">
     <div class="container-fluid">
         <div class = "row">
             <div class = "col-sm-2">
@@ -25,14 +109,21 @@
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'essays' %}">Essays</a></li>
-                <li><a href="{% url 'projects' %}">Projects</a></li>
+                <li><a href="{% url 'project_list' %}">Projects</a></li>
             </ul>
             {% endblock %}
             </div>
-            <div class="col-sm-10">    
-              {% block pagecontent %}{% endblock %}
-            </div>
         </div>
     </div>
+	</div>
+	</nav>
+
+    </div>
+		
+    <footer id="footer">
+        <div class="innertube">
+            <p>Footer...</p>
+        </div>
+    </footer>
   </body>
 </html>

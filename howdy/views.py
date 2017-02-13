@@ -18,8 +18,9 @@ class EssaysPageView(generic.TemplateView):
     template_name = "essays.html"
 
 
-class ProjectsListView(generic.ListView):
+class ProjectListView(generic.ListView):
     model = Project
+    template_name = "howdy/project_list.html"
 
 
 class ProjectDetailView(generic.DetailView):
