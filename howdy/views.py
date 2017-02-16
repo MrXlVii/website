@@ -20,7 +20,6 @@ class EssaysPageView(generic.TemplateView):
 
 class ProjectListView(generic.ListView):
     model = Project
-    template_name = "howdy/project_list.html"
 
 
 class ProjectDetailView(generic.DetailView):

@@ -1,4 +1,5 @@
 <!-- howdy/templates/howdy/project_list.html -->
+
 {% extends 'base.html' %}
 
 <!DOCTYPE html>
@@ -8,11 +9,11 @@
         <title>{% block title %}Projects{% endblock %}</title>
     </head>
     <body>
-      {% block content %}
+      {% block pagecontent %}
         <h1>Project List</h1>
-        {% if object_list %}
+        {% if project_list %}
     <ul>
-          {% for project in object_list %}
+          {% for project in project_list %}
             <li>{{ project.title }}</li>
           {% endfor %}
     </ul>

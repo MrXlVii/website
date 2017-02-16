@@ -6,7 +6,7 @@ urlpatterns = [
     url(r'^$', views.HomePageView.as_view(), name='home'),
     url(r'^about/$', views.AboutPageView.as_view(), name='about'),
     url(r'^essays/$', views.EssaysPageView.as_view(), name='essays'),
-    url(r'^projects/$', views.ProjectListView.as_view(), name='project_list'),
+    url(r'^projects/$', views.ProjectListView.as_view(), name='projects'),
     url(r'^project/(?P<pk>\d+)$',
         views.ProjectDetailView.as_view(), name='project-detail'
         ),
