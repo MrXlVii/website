@@ -10,12 +10,11 @@ class HomePageView(generic.TemplateView):
     template_name = "index.html"
 
 
-class AboutPageView(generic.TemplateView):
-    template_name = "about.html"
-
-
 class EssaysPageView(generic.TemplateView):
     template_name = "essays.html"
+
+class ContactPageView(generic.TemplateView):
+    template_name = "contact.html"
 
 
 class ProjectListView(generic.ListView):
