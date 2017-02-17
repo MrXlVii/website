@@ -9,13 +9,31 @@
         <title>{% block title %}Essays{% endblock %}</title>
     </head>
     <body>
-      {% block pagecontent %}
-        <h1>Essays</h1>
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    </p>
-      {% endblock %}
+    {% block pagecontent %}
+        <h2>Categories</h2>
+        {% if categories %}
+            <ul>
+            {% for category in categories %}
+                <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no posts.</p>
+        {% endif %}
+
+        <h2>Posts</h2>
+        {% if posts %}
+            <ul>
+            {% for post in posts %}
+                <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no posts.</p>
+        {% endif %}
+
+    {% endblock %}
     </body>
 </html>
+
+

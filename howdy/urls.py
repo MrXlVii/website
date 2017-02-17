@@ -10,4 +10,13 @@ urlpatterns = [
     url(r'^project/(?P<pk>\d+)$',
         views.ProjectDetailView.as_view(), name='project-detail'
         ),
+    url(r'^essays/view/(?P<slug>[^\.]+).html', 
+        views.EssaysPageView.as_view(), 
+        name='view_blog_post'),
+    url(r'^essays/category/(?P<slug>[^\.]+).html', 
+        views.EssaysPageView.as_view(), 
+        name='view_blog_category'),
 ]
+
+
+
