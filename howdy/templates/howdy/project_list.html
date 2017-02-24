@@ -14,7 +14,7 @@
         {% if project_list %}
     <ul>
           {% for project in project_list %}
-            <li>{{ project.title }}</li>
+            <li><a href="{% url %}">{{ project.title }}</a></li> <!-- Determine how to link the project details -->
           {% endfor %}
     </ul>
         {% else %}
