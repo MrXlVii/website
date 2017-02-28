@@ -4,6 +4,7 @@ from django.db import models
 from django.urls import reverse
 import uuid
 from django.db.models import permalink
+from django.utils import timezone
 
 
 # Create your models here.
@@ -92,15 +93,20 @@ class ProjectInstance(models.Model):
         return '%s (%s)' % (self.id, self.project.title)
 
 
-class Blog(models.Model):
+class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
+    body = models.TextField()
     slug = models.SlugField(max_length=100, unique=True)
-    body = models.TextField
     posted = models.DateField(db_index=True, auto_now_add=True)
+    posted_date = models.DateTimeField(blank=True, null=True)
     category = models.ForeignKey('Category')  # TODO: make ManyToMany
 
     def __unicode__(self):
         return '%s' % self.title
+
+    def publish(self):
+        self.posted_date = timezone.now()
+        self.save()
 
     @permalink
     def get_absolute_url(self):

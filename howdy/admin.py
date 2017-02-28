@@ -1,23 +1,22 @@
 from django.contrib import admin
-from django.db import models
-from django.forms import *
-from .models import Language, Project, ProjectInstance, Blog, Category
+from django import forms
+from .models import Language, Project, ProjectInstance, Post, Category
 from tinymce.widgets import TinyMCE
 
 # Register your models here.
 
-class BlogForm(forms.ModelForm):
-    some_field = forms.TextField(widget=TinyMCE(attrs={'cols': 80, 'rows': 10}))
+class PostForm(forms.ModelForm):
+
 
     class Meta:
-        model = Blog
+        model = Post
+        fields = ('title',)
 
-class BlogAdmin(admin.ModelAdmin):
+
+class PostAdmin(admin.ModelAdmin):
     exclude = ['posted']
     prepopulated_fields = {'slug': ('title',)}
-    formfield_overrides = {
-        models.TextField: {'widget': TinyMCE(attrs={'cols': 80, 'rows': 20},)},
-    }
+    form = PostForm
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -26,5 +25,5 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Project)
 admin.site.register(Language)
 admin.site.register(ProjectInstance)
-admin.site.register(Blog)
+admin.site.register(Post)
 admin.site.register(Category)

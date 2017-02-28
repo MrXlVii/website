@@ -2,7 +2,7 @@
 
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.views import generic
-from .models import Project, Blog, Category
+from .models import Project, Post, Category
 
 # Create your views here.
 class HomePageView(generic.TemplateView):
@@ -27,17 +27,17 @@ class ProjectDetailView(generic.DetailView):
 def essays(request):
     return render_to_response('essays.html', {
         'categories': Category.objects.all(),
-        'posts': Blog.objects.all()[:5]
+        'posts': Post.objects.all()[:5]
     })
 
 def view_post(request, slug):   
     return render_to_response('view_post.html', {
-        'post': get_object_or_404(Blog, slug=slug)
+        'post': get_object_or_404(Post, slug=slug)
     })
 
 def view_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
     return render_to_response('view_category.html', {
         'category': category,
-        'posts': Blog.objects.filter(category=category)[:5]
+        'posts': Post.objects.filter(category=category)[:5]
     })
