@@ -3,6 +3,7 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
 from django.views import generic
 from .models import Project, Post, Category
+from django.utils import timezone
 
 # Create your views here.
 class HomePageView(generic.TemplateView):
@@ -23,12 +24,18 @@ class ProjectListView(generic.ListView):
 
 class ProjectDetailView(generic.DetailView):
     model = Project
-
+'''
 def essays(request):
     return render_to_response('essays.html', {
         'categories': Category.objects.all(),
         'posts': Post.objects.all()[:5]
-    })
+    })  
+'''
+
+def post_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    return render(request, 'post_list.html', {'posts': posts})
+
 
 def view_post(request, slug):   
     return render_to_response('view_post.html', {
