@@ -16,6 +16,8 @@ urlpatterns = [
     url(r'^essays/category/(?P<slug>[^\.]+).html', 
         views.view_category, 
         name='view_blog_category'),
+    url(r'^post/(?P<pk>\d+)/$',
+        views.post_detail, name='post_detail'),
 ]
 
 

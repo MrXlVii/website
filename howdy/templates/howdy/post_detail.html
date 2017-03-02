@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+<html>
+{% block pagecontent %}
+  <h1>Title: {{ post.title }}</h1>
+
+  <p><strong>Body:</strong> {{ post.body }}</p>
+  <p><strong>Category:</strong> {% for category in post.category.all %} {{ category }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
+
+{% endblock %}
+</html>
