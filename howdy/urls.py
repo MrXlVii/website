@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^essays/$', views.EssaysPageView.as_view(), name='essays'),
     url(r'^projects/$', views.ProjectListView.as_view(), name='projects'),
     url(r'^projects/(?P<pk>\d+)$',
-        views.ProjectDetailView.as_view(), name='project-detail'
+        views.ProjectDetailView.as_view(), name='project_detail'
         ),
     url(r'^essays/view/(?P<slug>[^\.]+).html', 
         views.view_post, 
