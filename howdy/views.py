@@ -9,11 +9,6 @@ from django.utils import timezone
 class HomePageView(generic.TemplateView):
     template_name = "index.html"
 
-
-class EssaysPageView(generic.TemplateView):
-    template_name = "essays.html"
-
-
 class ContactPageView(generic.TemplateView):
     template_name = "contact.html"
 
@@ -24,6 +19,7 @@ class ProjectListView(generic.ListView):
 
 class ProjectDetailView(generic.DetailView):
     model = Project
+
 '''
 def essays(request):
     return render_to_response('essays.html', {
@@ -40,8 +36,8 @@ def project_detail(request, pk):
     return render(request, 'howdy/project_detail.html', {'project': project})
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'post_list.html', {'posts': posts})
+    posts = Post.objects.filter(posted_date__lte=timezone.now()).order_by('posted_date')
+    return render(request, 'howdy/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

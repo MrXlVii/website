@@ -5,7 +5,7 @@ from howdy import views
 urlpatterns = [
     url(r'^$', views.HomePageView.as_view(), name='home'),
     url(r'^contact/$', views.ContactPageView.as_view(), name='contact'),
-    url(r'^essays/$', views.EssaysPageView.as_view(), name='essays'),
+    url(r'^essays/$', views.post_list, name='essays'),
     url(r'^projects/$', views.ProjectListView.as_view(), name='projects'),
     url(r'^projects/(?P<pk>\d+)$',
         views.ProjectDetailView.as_view(), name='project_detail'
