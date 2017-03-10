@@ -1,9 +1,10 @@
 # Create your views here. # howdy/views.py
 
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.views import generic
 from .models import Project, Post, Category
 from django.utils import timezone
+from .forms import PostForm
 
 # Create your views here.
 class HomePageView(generic.TemplateView):
@@ -42,6 +43,19 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'howdy/post_detail.html', {'post': post})
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.posted_date = timezone.now()
+            post.save()
+            return redirect('post_detail', pk=post.pk)
+    else:
+        form = PostForm()
+    return render(request, 'howdy/post_edit.html', {'form': form})
 
 def view_post(request, slug):   
     return render_to_response('view_post.html', {

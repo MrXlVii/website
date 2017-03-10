@@ -18,6 +18,7 @@ urlpatterns = [
         name='view_blog_category'),
     url(r'^post/(?P<pk>\d+)/$',
         views.post_detail, name='post_detail'),
+    url(r'^post/new/$', views.post_new, name='post_new'),
 ]
 
 
