@@ -1,0 +1,156 @@
+<!-- djangotemplates/example/templates/base.html -->
+<!-- Templatby quackit.com -->
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans" rel="stylesheet"> 
+        <title>
+            Tasheme Thomas || {% block title %}{% endblock %}
+        </title>
+
+    <script src="{% static 'js/main.js' %}"></script> 
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
+
+    <style type="text/css">
+            body {
+                margin:0;   
+                padding-left: 15px;
+                font-family: 'Open Sans', sans-serif;
+                line-height: 1.5em;
+                background: #FFFFFF;
+                height: 100%;
+            }
+
+			#header {
+				background: #FFFFFF;
+				height: 100px;
+			}
+
+			#header h1 {
+				margin: 0;
+				padding-top: 15px;
+                color: #00BCD4;
+                font-family: 'Fjalla One';
+			}
+
+            h1 a{
+                color: #00BCD4;
+                font-family: 'Fjalla One';
+            }
+
+            body h1{
+                color: #00BCD4;
+                font-family: 'Fjalla One';
+            }
+
+			main {
+				padding-bottom: 10010px;
+				margin-bottom: -10000px;
+				float: left;
+				width: 100%;
+                color: #00BCD4;
+			}
+
+			#nav {				
+                padding-bottom: 10010px;
+				margin-bottom: -10000px;
+				float: left;
+				width: 230px;
+				margin-left: -100%;
+				background: #F44336;
+                height: 100%;
+			}
+
+			#footer {
+                position: absolute;
+				clear: left;
+				width: 100%;
+				background: #D32F2F;
+				text-align: center;
+				padding: 4px 0;
+                bottom: 0;
+			}
+
+            #footer p{
+                color: #FFFFFF;
+            }
+
+			#wrapper {
+				overflow: hidden;
+			}
+			
+			#content {
+				margin-left: 230px; /* Same as 'nav' width */
+			}
+			
+			.innertube {
+				margin: 15px; /* Padding for content */
+				margin-top: 0;
+			}
+		
+			p {
+				color: #000000;
+
+			}
+	
+			nav ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			nav ul a {
+				color: #FFFFFF;
+				text-decoration: none;
+			}
+		
+		</style>
+    <div class="page-header">
+        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+        <h1><a href="/">Tasheme Thomas</a></h1>
+    </div>	
+  </head>
+  <body>
+		<div id="wrapper">
+			<main>
+				<div id="content">
+                   <div class="col-sm-10">    
+                       {% block pagecontent %}{% endblock %}
+                   </div>
+				</div>
+			</main>
+    <nav id="nav">
+    <div class="innertube">
+    <div class="container-fluid">
+        <div class = "row">
+            <div class = "col-sm-2">
+            {% block sidebar %}
+            <ul class="sidebar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'essays' %}">Essays</a></li>
+                <li><a href="{% url 'projects' %}">Projects</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+	</div>
+	</nav>
+
+    </div>
+		
+    <footer id="footer">
+        <div class="innertube">
+            <p> © 2017 Tasheme Thomas. All Rights Reserved.</p>
+        </div>
+    </footer>
+  </body>
+</html>

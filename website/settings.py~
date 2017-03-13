@@ -130,6 +130,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
 TINYMCE_DEFAULT_CONFIG = {
     'plugins': "table,spellchecke,paste,searchreplace",
+    'theme': 'modern',
     'cleanup_on_startup': True,
     'custom_undo_redo_levels': 10,
 }
