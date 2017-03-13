@@ -1,10 +1,18 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
 <html>
 {% block pagecontent %}
-  <h1>Title: {{ post.title }}</h1>
-
-  <p><strong>Body:</strong> {{ post.body }}</p>
-  <p><strong>Category:</strong> {% for category in post.category.all %} {{ category }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>  
-
+    <div class="post">
+        {% if post.posted_date %}
+            <div class="date">
+                {{ post.posted_date }}
+            </div>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.body|linebreaksbr }}</p>
+    </div>
 {% endblock %}
 </html>
