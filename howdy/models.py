@@ -6,6 +6,7 @@ import uuid
 from django.db.models import permalink
 from django.utils import timezone
 from tinymce.widgets import TinyMCE
+from tinymce.models import HTMLField
 
 
 # Create your models here.

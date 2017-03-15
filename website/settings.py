@@ -127,11 +127,18 @@ STATICFILES_DIRS = (
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_JS_URL = os.path.join(STATIC_URL,"django-tinymce-master/tinymce/media/tiny_mce/tiny_mce_src.js")
+
+
+TINYMCE_JS_ROOT = os.path.join(STATIC_URL, "django-tinymce-master/tinymce")
+
+#D:\Dropbox\dp\p2d18\opinion\static\django-tinymce-master\tinymce
+
 TINYMCE_DEFAULT_CONFIG = {
-    'plugins': "table,spellchecke,paste,searchreplace",
-    'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 10,
+'plugins': "table,spellchecker,paste,searchreplace",
+'theme': "advanced",
+'cleanup_on_startup': True,
+'custom_undo_redo_levels': 10,
 }
 TINYMCE_SPELLCHECKER = True
 TINYMCE_COMPRESSOR = True

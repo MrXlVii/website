@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+<script>
+tinyMCE.init({
+  mode: "textareas",  // to do all text areas
+  // or
+  selector: "#id_myfield",  // change this value according to your HTML
+});
+</script>
+
 {% block pagecontent %}
     <h1>New post</h1>
     <form method="POST" class="post-form">{% csrf_token %}
@@ -8,3 +16,5 @@
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}
+
+
