@@ -1,12 +1,11 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 import uuid
 from django.db.models import permalink
 from django.utils import timezone
-from tinymce.widgets import TinyMCE
-from tinymce.models import HTMLField
+from tinymce_4.fields import TinyMCEModelField
 
 
 # Create your models here.

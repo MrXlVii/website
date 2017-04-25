@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django import forms
 from .models import Language, Project, ProjectInstance, Post, Category
-from tinymce.widgets import TinyMCE
 
 # Register your models here.
 
