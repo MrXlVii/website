@@ -24,6 +24,33 @@ class Language(models.Model):
         """
         return self.name
 
+"""
+class ProjectNew(models.Model):
+    # Updated Project model.
+    title = models.CharField(max_length=200)
+    summary = models.TextFeild(max_length=1000,
+                               help_text="Enter a brief" +
+                               " description of the project."
+                               )
+    language = models.ManyToManyField(Language,
+                                      help_text="Select the" + 
+                                      " language for this project"
+                                     )
+    last_update = models.DateField(null=True, blank=True)
+    category = models.ForeignKey('Category')
+
+    class Meta:
+        ordering = ["last_update"]
+
+    def __str__(self):
+
+        return self.title
+
+    @permalink
+    def get_absolute_url(self):
+
+        return reverse('project-detail', args=[str(self.id)])    
+"""
 
 class Project(models.Model):
     """
@@ -51,6 +78,7 @@ class Project(models.Model):
         String for representing the Model object.
         """
         return self.title
+
 
     def get_absolute_url(self):
         """
@@ -100,7 +128,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=100, unique=True)
     posted = models.DateField(db_index=True, auto_now_add=True)
     posted_date = models.DateTimeField(blank=True, null=True)
-    category = models.ForeignKey('Category')  # TODO: make ManyToMany
+    category = models.ForeignKey('Category')
 
     def __unicode__(self):
         return '%s' % self.title
