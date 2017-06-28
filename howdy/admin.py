@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django import forms
-from .models import Language, Project, ProjectInstance, Post, Category
+from .models import Language, Post, Category
 
 # Register your models here.
 
@@ -20,8 +20,6 @@ class PostAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
-admin.site.register(Project)
 admin.site.register(Language)
-admin.site.register(ProjectInstance)
 admin.site.register(Post)
 admin.site.register(Category)
