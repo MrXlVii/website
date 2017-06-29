@@ -55,7 +55,7 @@ class Project(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)
     body = models.TextField()
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True, default=uuid.uuid1)
     posted = models.DateField(db_index=True, auto_now_add=True)
     posted_date = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey('Category')
