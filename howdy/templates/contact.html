@@ -6,13 +6,76 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}Contact{% endblock %}</title>
+        <title>{% block title %}Say Hello!{% endblock %}</title>
     </head>
     <body>
       {% block pagecontent %}
         <h1>Contact</h1>
 
-<!--add contact buttons-->
+<title>Thomas Lisankie</title>
+<html lang="en">
+<head>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,800" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- JQuery. Needed for bootstrap (e.g. navbar dropdown) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="style.css" rel="stylesheet">
+  <script src="./assets/js/ie-emulation-modes-warning.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="Thomas Lisankie personal portfolio and projects">
+  <meta name="author" content="Thomas Lisankie">
+  <link rel="icon" href="./favicon.ico">
+
+</head>
+<body style="overflow-x:hidden">
+
+<!----------------------------- Body ------------------------------>
+
+<style>
+/* Terribly hacky----but only make height 100% if it's Firefox.
+   This is how to get around the disaparate styling between Firefox and Chrome
+   and the different needs for the contact vs about page.
+*/
+@-moz-document url-prefix() {
+  body {
+    height: 100%;
+  }
+}
+</style>
+
+<input type="hidden" value="contact" class="page_name">
+<div class="container-fluid">
+  <div class="col-md-12 content contact">
+    <div class="social_icons social">
+      <a class="fa fa-envelope fa-2x" href="mailto:tasheme.thomas@gmail.com"></a>
+      <a class="fa fa-twitter fa-2x" href="https://twitter.com/tashemewashere"></a>
+      <a class="fa fa-github-alt fa-2x" href="https://github.com/MrXlVii"></a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./script.js"></script>
+    <script src="./analytics.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
 
       {% endblock %}
     </body>
