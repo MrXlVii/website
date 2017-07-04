@@ -53,7 +53,7 @@ def post_new(request):
             post.author = request.user
             post.posted_date = timezone.now()
             post.save()
-            return redirect('howdy/post_detail.html', pk=post.pk)
+            return redirect('post_detail', pk=post.pk)
     else:
         form = PostForm()
     return render(request, 'howdy/post_edit.html', {'form': form})
