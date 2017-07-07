@@ -24,10 +24,10 @@ class Language(models.Model):
         """
         return self.name
 
-"""
+
 class Project(models.Model):
     # Updated Project model.
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, unique=True)
     summary = models.TextField(max_length=1000,
                                help_text="Enter a brief" +
                                " description of the project."
@@ -50,7 +50,7 @@ class Project(models.Model):
     def get_absolute_url(self):
 
         return reverse('project-detail', args=[str(self.id)])    
-"""
+
 
 class Post(models.Model):
     title = models.CharField(max_length=100, unique=True)

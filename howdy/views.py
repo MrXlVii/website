@@ -2,7 +2,7 @@
 
 from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from django.views import generic
-from .models import Post, Category
+from .models import Post, Category, Project
 from django.utils import timezone
 from .forms import PostForm
 
@@ -28,15 +28,15 @@ def essays(request):
         'posts': Post.objects.all()[:5]
     })  
 
-"""
+
 def project_list(request):
-    projects = ProjectNew.objects.order_by('last_update')
-    return render(request, 'project_list.html', {'projects': projects})
+    projects = Project.objects.order_by('last_update')
+    return render(request, 'howdy/project_list.html', {'projects': projects})
 
 def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)
     return render(request, 'howdy/project_detail.html', {'project': project})
-"""
+
 def post_list(request):
     posts = Post.objects.filter(posted_date__lte=timezone.now()).order_by('posted_date')
     return render(request, 'howdy/post_list.html', {'posts': posts})
