@@ -18,8 +18,11 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit,
         name='post_edit'),
     url(r'^projects/$', views.project_list, name='projects'),
-    url(r'^post/(?P<pk>\d+)/$',
-        views.post_detail, name='post_detail'),
+    url(r'^project/(?P<pk>\d+)/$',
+        views.project_detail, name='project_detail'),
+    url(r'^project/add/$', views.project_add, name='project_add'),
+    url(r'^project/(?P<pk>\d+)/edit/$', views.project_edit,
+        name='project_edit'),
 ]
 
 

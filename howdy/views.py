@@ -37,6 +37,29 @@ def project_detail(request, pk):
     project = get_object_or_404(Project, pk=pk)
     return render(request, 'howdy/project_detail.html', {'project': project})
 
+def project_add(request):
+    if request.method == "POST":
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            project = form.save(commit=False)
+            post.save()
+            return redirect('project_detail', pk=project.pk)
+    else:
+        form = ProjectForm()
+    return render(request, 'howdy/project_edit.html', {'form': form})
+
+def project_edit(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    if request.method == "POST":
+        form = ProjectForm(request.POST, instance=post)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.save()
+            return redirect('project_detail', pk=project.pk)
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'howdy/post_edit.html', {'form': form})
+
 def post_list(request):
     posts = Post.objects.filter(posted_date__lte=timezone.now()).order_by('posted_date')
     return render(request, 'howdy/post_list.html', {'posts': posts})

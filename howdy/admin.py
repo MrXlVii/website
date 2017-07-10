@@ -27,6 +27,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class ProjectAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
+    form = ProjectForm
     
 
 admin.site.register(Language)
