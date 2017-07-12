@@ -42,7 +42,7 @@ def project_add(request):
         form = ProjectForm(request.POST)
         if form.is_valid():
             project = form.save(commit=False)
-            post.save()
+            project.save()
             return redirect('project_detail', pk=project.pk)
     else:
         form = ProjectForm()
@@ -51,7 +51,7 @@ def project_add(request):
 def project_edit(request, pk):
     project = get_object_or_404(Project, pk=pk)
     if request.method == "POST":
-        form = ProjectForm(request.POST, instance=post)
+        form = ProjectForm(request.POST, instance=project)
         if form.is_valid():
             project = form.save(commit=False)
             project.save()
