@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^post/new/$', views.post_new, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit,
         name='post_edit'),
+    url(r'^projects/$', views.project_list, name='projects'),
     url(r'^project/(?P<pk>\d+)/$',
         views.project_detail, name='project_detail'),
     url(r'^project/add/$', views.project_add, name='project_add'),
