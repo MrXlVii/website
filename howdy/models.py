@@ -46,10 +46,8 @@ class Project(models.Model):
 
         return self.title
 
-    @permalink
     def get_absolute_url(self):
-
-        return reverse('project-detail', args=[str(self.id)])    
+        return reverse('project_detail', args=[str(self.id)])    
 
 
 class Post(models.Model):
