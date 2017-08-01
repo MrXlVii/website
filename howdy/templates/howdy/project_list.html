@@ -9,17 +9,17 @@
         <title>{% block title %}Projects{% endblock %}</title>
     </head>
     <body>
-      {% block pagecontent %}
-        <h1>Project List</h1>
-        {% if project_list %}
-    <ul>
-          {% for project in project_list %}
-            <li><a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a></li>
-          {% endfor %}
-    </ul>
-        {% else %}
-            <p>There are no projects to display.</p>
-        {% endif %}       
-      {% endblock %}
+        {% block pagecontent %}
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for project in projects %}
+                        <div class="project">
+                            <h1><a href="{% url 'project_detail' pk=project.pk %}">{{ project.title }}</a></h1>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endblock pagecontent %}
     </body>
-</html>
